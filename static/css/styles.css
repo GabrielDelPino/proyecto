@@ -1,13 +1,16 @@
 /* styles.css */
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 40px;
-    
+    display: flex; /* Apila las secciones horizontalmente */
+    flex-direction: row; /* Asegura que las secciones estén una al lado de la otra */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: stretch; /* Estira las secciones para que ocupen la misma altura */
+    height: 100vh; /* Asegura que ocupe el 100% de la altura de la ventana */
+    width: 100vw;  /* Asegura que ocupe el 100% del ancho de la ventana */
+    margin: 0;     /* Elimina cualquier margen */
+    padding: 0;    /* Elimina cualquier relleno */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+    box-sizing: border-box; /* Evita que el padding/width desborde el contenedor */
 }
 
 .left-section {
@@ -92,6 +95,43 @@
     height: auto;
     margin-bottom: 50px; 
     margin-top: -200px; 
+}
+
+html, body {
+    height: 100%; /* Asegura que html y body ocupen el 100% de la ventana */
+    margin: 0;    /* Elimina los márgenes predeterminados */
+    padding: 0;   /* Elimina el relleno predeterminado */
+    overflow: hidden; /* Evita que haya barras de desplazamiento */
+}
+
+/* styles.css */
+
+.container-fluid {
+    padding: 0; /* Elimina el padding para que ocupe todo el espacio */
+    margin: 0;  /* Elimina el margen */
+}
+
+.left-section {
+    background: linear-gradient(to right, #2d2d2d, #d4a130);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Alinea al centro horizontalmente */
+    font-size: 25px;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+.right-section {
+    padding: 40px; /* Mantiene el padding para el contenido */
+    background-color: #fff;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    overflow: auto; /* Permite que el contenido se desplace si es necesario */
+}
+
+#calendar {
+    width: 100%; /* Hace que el calendario ocupe el 100% del ancho disponible */
+    height: 100vh; /* Ajusta la altura según sea necesario, puedes cambiarlo a 80vh o similar */
 }
 
 

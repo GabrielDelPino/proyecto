@@ -1,35 +1,58 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <h1>Calendario</h1>
-    <a href="{% url 'event_create' %}" class="btn btn-primary">Crear Evento</a>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Título</th>
-                <th>Inicio</th>
-                <th>Fin</th>
-                <th>Descripción</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for event in events %}
-                <tr>
-                    <td>{{ event.title }}</td>
-                    <td>{{ event.start_time }}</td>
-                    <td>{{ event.end_time }}</td>
-                    <td>{{ event.description }}</td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="4">No hay eventos programados.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="col-md-5 left-section text-center d-flex flex-column justify-content-center">
+            <h1>Calendario de Eventos</h1>
+            <a href="{% url 'event_create' %}" class="btn btn-primary">Crear Evento</a>
+        </div>
+        <div class="col-md-5 right-section">
+            <!-- Sección del Calendario -->
+            <div id='calendar'></div> <!-- Div para el calendario -->
+
+            <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var calendarEl = document.getElementById('calendar');
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: 'dayGridMonth'
+                    });
+                    calendar.render();
+                });
+            </script>
+
+            <!-- Tabla de Eventos -->
+            <table class="table mt-4"> <!-- Añade margen superior para separarla del calendario -->
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Inicio</th>
+                        <th>Fin</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in events %}
+                        <tr>
+                            <td>{{ event.title }}</td>
+                            <td>{{ event.start_time }}</td>
+                            <td>{{ event.end_time }}</td>
+                            <td>{{ event.description }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4">No hay eventos programados.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 {% endblock %}
+
+
 
 
 

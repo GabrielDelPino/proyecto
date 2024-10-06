@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
-    <div class="left-section">
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="col-md-5 left-section text-center d-flex flex-column justify-content-center">
         <h1>¡Bienvenido!</h1>
         <p>Crea tu cuenta y empieza a gestionar tu calendario de manera eficiente.</p>
     </div>
-    <div class="right-section">
+    <div class="col-md-5 right-section">
         <h2>Crear Cuenta</h2>
         <form method="post" action="{% url 'register' %}">
             {% csrf_token %}
