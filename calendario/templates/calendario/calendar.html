@@ -16,14 +16,18 @@
                 document.addEventListener('DOMContentLoaded', function() {
                     var calendarEl = document.getElementById('calendar');
                     var calendar = new FullCalendar.Calendar(calendarEl, {
-                        initialView: 'dayGridMonth'
+                        initialView: 'dayGridMonth',
+                        events: '{% url "load_events" %}',  // Cargar eventos desde la vista
+                        eventClick: function(info) {
+                            alert('Evento: ' + info.event.title + '\nDescripción: ' + info.event.extendedProps.description);
+                        }
                     });
                     calendar.render();
                 });
             </script>
 
             <!-- Tabla de Eventos -->
-            <table class="table mt-4"> <!-- Añade margen superior para separarla del calendario -->
+            <table class="table mt-4">
                 <thead>
                     <tr>
                         <th>Título</th>
@@ -51,6 +55,7 @@
     </div>
 </div>
 {% endblock %}
+
 
 
 
