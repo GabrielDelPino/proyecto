@@ -8,13 +8,13 @@
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-<div class="container-fluid">
+<div class="container-fluid" >
     <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
         <div class="col-md-5 left-section text-center d-flex flex-column justify-content-center">
             <h1>CalendarioPyme</h1>
             <p>CalendarioPyme te ayuda a organizarte</p>
         </div>
-        <div class="col-md-5 right-section">
+        <div class="col-md-5 justify-content-center">
             <form method="post" action="">
                 {% csrf_token %}
                 
